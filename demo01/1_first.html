@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <!--1. 引入vue.js-->
+  <script src="js/vue.js"></script>
+</head>
+<body>
+<!--2. 编写HTML网页内容，并提前放置数据变量和事件处理函数-->
+<div id="app">
+  <span>{{n}}</span>
+  <button @click="add">+</button>
+</div>
+<!--3. 编写自定义脚本-->
+<script>
+  //定义data对象，保存页面上需要的所有数据变量
+  var data={ n:1 };
+  //创建Vue对象，将数据data和页面HTML绑定起来
+  var vm=new Vue({
+    el:"#app",//element
+    data:data,
+    methods:{//方法，专门写事件处理函数
+      add(){//add:function(){
+        this.n++;
+      }
+    },
+    watch:{}
+  })
+</script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+  <!--页面要求四个img，四选一显示-->
+  <!--如果pm25<100，就1.png-->
+  <img v-if="pm25<100" src="img/1.png" alt="">
+  <!--否则 如果pm25<200，就2.png-->
+  <img v-else-if="pm25<200" src="img/2.png" alt="">
+  <!--否则 如果pm25<300，就3.png-->
+  <img v-else-if="pm25<300" src="img/3.png" alt="">
+  <!--否则，其余都是4.png-->
+  <img v-else src="img/4.png" alt="">
+  <hr>
+  <!--如果未登录，就显示第一个div-->
+  <div v-if="islogin==false"><a href="javascript:;">登录</a> | <a href="javascript:;">注册</a></div>
+  <!--否则，就显示第二个div-->
+  <div v-else>Welcome dingding | <a href="javascript:;">注销</a></div>
+</div>
+<script>
+var vm=new Vue({
+  el:"#app",
+  data:{
+    islogin:false,
+    //仅用一个变量，遥控页面上四个img四选一
+    pm25:60
+  }
+})
+setInterval(function(){
+  vm.pm25=Math.random()*500
+},2000)
+</script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+  <h1>代办事项列表</h1>
+  <ul>
+<!--of自动遍历tasks中每个元素-->
+<!--每遍历一个元素就按模板创建一个li-->
+<!--每创建一个li都可以自动绑定本次从数组中取出的值和下标-->
+    <li v-for="(elem,i) of tasks">{{i+1}} - {{elem}}</li>
+  </ul>
+</div>
+<script>
+var vm=new Vue({
+  el:"#app",
+  data:{
+    tasks:["吃饭","睡觉","打亮亮"]
+  }
+})
+</script>
+</body>
+</html>
